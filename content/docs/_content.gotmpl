@@ -1,0 +1,8 @@
+{{- /*
+  Generates every game page from data/games.yaml.
+
+  The data file is nested: a game may itself contain a `games` list, which
+  becomes a collapsible group. This adapter handles both shapes.
+*/}}
+
+{{- partial "game-pages.html" (dict "ctx" $ "games" hugo.Data.games) }}

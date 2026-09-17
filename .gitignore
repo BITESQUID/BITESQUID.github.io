@@ -1,0 +1,8 @@
+# Hugo build output
+/public/
+
+# Hugo's generated asset cache
+/resources/_gen/
+
+# Hugo server lock file
+.hugo_build.lock

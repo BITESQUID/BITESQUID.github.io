@@ -1,0 +1,164 @@
+/* =============================================================================
+   BITESQUID ocean theme
+
+   Hextra derives its entire color scale from a few CSS variables, so setting
+   them here recolors every link, active menu item, button, badge and focus ring
+   at once. This file loads last, so it wins over the theme's defaults.
+
+   The palette comes from the BITESQUID logo: deep sea navy, ocean blue, and a
+   bioluminescent aqua used in dark mode.
+   ============================================================================= */
+
+/* -----------------------------------------------------------------------------
+   Primary color - ocean blue on light, glowing aqua on dark
+   -------------------------------------------------------------------------- */
+:root {
+  --primary-hue: 202deg;
+  --primary-saturation: 62%;
+  --primary-lightness: 40%;
+}
+
+.dark {
+  --primary-hue: 194deg;
+  --primary-saturation: 68%;
+  --primary-lightness: 58%;
+}
+
+/* -----------------------------------------------------------------------------
+   Dark surfaces - deep sea navy instead of neutral near-black.
+
+   Tailwind prefixes theme variables, so the token the theme actually reads is
+   `--hx-color-dark`. Overriding it tints every dark surface at once, including
+   the navbar, which the theme paints from this token behind its frosted blur.
+   -------------------------------------------------------------------------- */
+:root {
+  --hx-color-dark: #0e1c26;
+}
+
+/* -----------------------------------------------------------------------------
+   Backgrounds.
+
+   The page needs an explicit dark rule: the theme's dark background and the
+   plain rule below end up at the SAME specificity, so without it the light
+   value would also win in dark mode.
+   -------------------------------------------------------------------------- */
+body {
+  background-color: #f5fafc;
+}
+
+.dark body {
+  background-color: var(--hx-color-dark);
+}
+
+/* footer sits one step deeper than the page, to anchor the layout */
+.hextra-footer {
+  background-color: #e8f1f7;
+}
+
+.dark .hextra-footer {
+  background-color: #09141c;
+}
+
+/* -----------------------------------------------------------------------------
+   Inline code - tinted like shallow water instead of neutral gray
+   -------------------------------------------------------------------------- */
+.content code:not(pre code) {
+  background-color: #e4f0f7;
+  color: #1a5c85;
+}
+
+.dark .content code:not(pre code) {
+  background-color: #16303d;
+  color: #7ed0e8;
+}
+
+/* -----------------------------------------------------------------------------
+   Headings - deep ocean blue instead of neutral near-black.
+
+   Scoped with #content because the theme sets heading colors with utility
+   classes, and a class always outranks plain element selectors.
+   -------------------------------------------------------------------------- */
+#content h1,
+#content h2,
+#content h3,
+#content h4 {
+  color: #0c4a6e;
+}
+
+.dark #content h1,
+.dark #content h2,
+.dark #content h3,
+.dark #content h4 {
+  color: #b8e4f3;
+}
+
+/* -----------------------------------------------------------------------------
+   Spacing - keep a list close to the line of text that introduces it.
+
+   The theme gives both paragraphs and lists a 24px top margin, so a line like
+   "Quality of life improvements include:" ends up 24px away from its own
+   bullets. Reducing the list's top margin to 8px makes the two read as one
+   block. Only lists that directly follow a paragraph are affected, so lists
+   after a heading keep the theme's spacing.
+   -------------------------------------------------------------------------- */
+#content p + ul,
+#content p + ol {
+  margin-top: 0.5rem;
+}
+
+/* -----------------------------------------------------------------------------
+   Notice box borders.
+
+   Hextra emits `border-gray-200` AFTER `border-amber-200` in the compiled
+   stylesheet. Both are single-class rules, so the grey one wins on order and
+   the yellow box ends up with a grey outline that does not match its own
+   background. Red is unaffected only because `border-red-200` happens to be
+   emitted last.
+
+   These rules give each box a border in its own colour. Attribute selectors are
+   used because the theme applies colour as utility classes, so there is no
+   semantic class to hook onto.
+   -------------------------------------------------------------------------- */
+#content [class*="bg-amber-100"] {
+  border-color: var(--hx-color-amber-200);
+}
+
+.dark #content [class*="bg-amber-100"] {
+  border-color: color-mix(in oklab, var(--hx-color-amber-200) 35%, transparent);
+}
+
+#content [class*="bg-red-100"] {
+  border-color: var(--hx-color-red-200);
+}
+
+.dark #content [class*="bg-red-100"] {
+  border-color: color-mix(in oklab, var(--hx-color-red-200) 35%, transparent);
+}
+
+/* -----------------------------------------------------------------------------
+   Content images - keep screenshots inside the text column and frame them so
+   they read as part of the page rather than floating on it.
+   -------------------------------------------------------------------------- */
+#content .content-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 1.5rem 0;
+  border-radius: 0.5rem;
+  border: 1px solid var(--hx-color-gray-200);
+}
+
+.dark #content .content-image {
+  border-color: var(--hx-color-gray-100);
+  opacity: 0.92;
+}
+
+/* an image wrapped in a link should not inherit link underlines */
+#content .content-image-link {
+  display: block;
+  text-decoration: none;
+}
+
+#content .content-image-link:hover .content-image {
+  border-color: var(--hx-color-primary-400);
+}

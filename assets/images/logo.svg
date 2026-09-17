@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="BITESQUID">
+  <defs>
+    <linearGradient id="bs-body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5ec8f5"/>
+      <stop offset="1" stop-color="#1a6fbf"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" stroke="url(#bs-body)" stroke-width="2.2" stroke-linecap="round">
+    <path d="M9.5 17.5c-2.4 3.4-2.6 7.8-1 11.5"/>
+    <path d="M12.8 19c-1.1 4.2-.8 8.2.2 11.4"/>
+    <path d="M16 19.4V31"/>
+    <path d="M19.2 19c1.1 4.2.8 8.2-.2 11.4"/>
+    <path d="M22.5 17.5c2.4 3.4 2.6 7.8 1 11.5"/>
+  </g>
+  <path d="M16 1.6c4.6 0 8.2 3.4 8.2 7.9 0 4.6-3.6 8-8.2 8s-8.2-3.4-8.2-8c0-4.5 3.6-7.9 8.2-7.9z" fill="url(#bs-body)"/>
+  <circle cx="12.9" cy="9.1" r="1.7" fill="#0d1b26"/>
+  <circle cx="19.1" cy="9.1" r="1.7" fill="#0d1b26"/>
+</svg>

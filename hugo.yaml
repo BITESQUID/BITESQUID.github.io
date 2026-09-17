@@ -1,0 +1,68 @@
+# BITESQUID documentation site - canonical Hugo configuration for the Hextra theme.
+# Local preview: hugo server  ->  http://localhost:1313/
+# Production: the GitHub Pages workflow injects the real URL via --baseURL
+
+baseURL: "http://localhost:1313/"
+title: BITESQUID
+enableRobotsTXT: true
+defaultContentLanguage: en
+
+theme: hextra
+
+module:
+  hugoVersion:
+    extended: true
+    min: "0.146.0"
+
+markup:
+  highlight:
+    noClasses: false
+  goldmark:
+    renderer:
+      # raw HTML in content is allowed
+      unsafe: true
+
+menu:
+  main:
+    - name: Games
+      pageRef: /docs
+      weight: 1
+    - name: Downloads
+      pageRef: /downloads
+      weight: 2
+    - name: Communitys
+      pageRef: /communitys
+      weight: 3
+    - name: Search
+      weight: 4
+      params:
+        type: search
+
+params:
+  description: BITESQUID - a mod loader for Bitsquid and Autodesk Stingray games.
+
+  navbar:
+    displayTitle: true
+    displayLogo: true
+    logo:
+      path: images/logo.svg
+
+  theme:
+    # light | dark | system
+    default: light
+    displayToggle: true
+
+  footer:
+    enable: true
+    displayCopyright: true
+    displayPoweredBy: false
+
+  search:
+    enable: true
+    type: flexsearch
+    flexsearch:
+      index: content
+
+  page:
+    # full (100%), wide (90rem), normal (80rem)
+    width: normal

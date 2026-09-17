@@ -1,0 +1,29 @@
+{{- /*
+  Override of Hextra's breadcrumb partial.
+
+  Only change from the theme's version: the breadcrumb is skipped on the home
+  page, where it would just repeat the page title directly above the H1.
+  Every other page keeps its breadcrumb, which shows the real section path.
+
+  Note: the theme's own `breadcrumbs` front matter switch cannot disable it,
+  because it is read through `default $enable ...`, and `false` counts as the
+  empty value there, so it always falls back to `true`.
+*/}}
+
+{{- $page := .page -}}
+{{- $enable := .enable -}}
+{{- if and (not $page.IsHome) (default $enable $page.Params.breadcrumbs) -}}
+  <div class="hx:mt-1.5 hx:flex hx:items-center hx:gap-1 hx:overflow-hidden hx:text-sm hx:text-gray-500 hx:dark:text-gray-400 hx:contrast-more:text-current">
+    {{- range $page.Ancestors.Reverse }}
+      {{- if not .IsHome }}
+        <div class="hx:whitespace-nowrap hx:transition-colors hx:min-w-[24px] hx:overflow-hidden hx:text-ellipsis hx:hover:text-gray-900 hx:dark:hover:text-gray-100">
+          <a href="{{ .RelPermalink }}" class="hx:inline-block hx:rounded-sm hx:hextra-focus-visible-inset">{{- partial "utils/title" . -}}</a>
+        </div>
+        {{- partial "utils/icon.html" (dict "name" "chevron-right" "attributes" "class=\"hx:w-3.5 hx:shrink-0 hx:rtl:-rotate-180\"") -}}
+      {{ end -}}
+    {{ end -}}
+    <div class="hx:whitespace-nowrap hx:transition-colors hx:font-medium hx:text-gray-700 hx:contrast-more:font-bold hx:contrast-more:text-current hx:dark:text-gray-100 hx:contrast-more:dark:text-current">
+      {{- partial "utils/title" $page -}}
+    </div>
+  </div>
+{{ end -}}

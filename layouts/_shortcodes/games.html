@@ -1,0 +1,21 @@
+{{- /*
+  Renders the game list from data/games.yaml, so titles and order stay in that
+  single file. A game with its own `games` list is rendered as a nested group.
+  Used by content/docs/_index.md.
+*/}}
+<ul>
+  {{- range hugo.Data.games }}
+  {{- if .games }}
+  {{- $groupKey := .key }}
+  <li><a href="{{ printf "/docs/%s/" $groupKey | relURL }}">{{ .title }}</a>
+    <ul>
+      {{- range .games }}
+      <li><a href="{{ printf "/docs/%s/%s/" $groupKey .key | relURL }}">{{ .title }}</a></li>
+      {{- end }}
+    </ul>
+  </li>
+  {{- else }}
+  <li><a href="{{ printf "/docs/%s/" .key | relURL }}">{{ .title }}</a></li>
+  {{- end }}
+  {{- end }}
+</ul>

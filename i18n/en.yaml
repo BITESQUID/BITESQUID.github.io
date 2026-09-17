@@ -1,0 +1,4 @@
+# Local overrides for Hextra's built-in strings.
+# Anything defined here wins over the theme's own i18n file.
+copyright: "© 2026 BITESQUID"
+poweredBy: "Powered by Hextra"

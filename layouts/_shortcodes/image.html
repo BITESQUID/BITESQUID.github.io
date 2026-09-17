@@ -1,0 +1,35 @@
+{{- /*
+  Responsive image from the assets directory.
+
+  Serves a resized, web-optimised version instead of the original file, and
+  emits width/height so the page does not shift while the image loads.
+
+    {{< image src="images/BITESQUID.png" alt="BITESQUID Mod Launcher" >}}
+
+  Optional:
+    width   maximum rendered width (default 1200)
+    link    wraps the image in a link so it can be clicked through
+    title   adds a caption below the image
+*/}}
+
+{{- $src := .Get "src" -}}
+{{- $alt := .Get "alt" | default "" -}}
+{{- $maxWidth := .Get "width" | default 1200 -}}
+{{- $link := .Get "link" -}}
+{{- $title := .Get "title" -}}
+
+{{- with resources.Get $src -}}
+  {{- $img := .Resize (printf "%dx webp q82" (int $maxWidth)) -}}
+  {{- if $link }}<a href="{{ $link }}" target="_blank" rel="noopener" class="content-image-link">{{ end -}}
+  <img
+    src="{{ $img.RelPermalink }}"
+    alt="{{ $alt }}"
+    width="{{ $img.Width }}"
+    height="{{ $img.Height }}"
+    decoding="async"
+    class="content-image">
+  {{- if $link }}</a>{{ end -}}
+  {{- with $title }}<p class="content-image-caption">{{ . }}</p>{{ end -}}
+{{- else -}}
+  {{- errorf "image shortcode: %q not found in assets/" $src -}}
+{{- end -}}

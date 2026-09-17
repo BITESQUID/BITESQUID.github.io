@@ -1,0 +1,234 @@
+# =============================================================================
+# CANONICAL GAME LIST - the only place game titles, order and text live.
+#
+# ORDER IS THE FILE ORDER. Move a block up or down to reorder the site - there
+# is no weight field to maintain.
+#
+# A plain game has `key`, `title` and `summary`.
+#
+# A game that groups others (like Magicka) additionally has a `games:` list.
+# That makes it a collapsible group: the group itself is a page AND the parent
+# of its children in the sidebar.
+#
+#   `key`     becomes the URL. Games sit at /docs/<key>/
+#   `summary` is the game's description, shown directly under the name
+#
+# `summary` is markdown, so bullet lists work. Use `|-` for multi-line text and
+# keep each paragraph or bullet on ONE line - the editor soft-wraps it and you
+# never have to worry about indentation.
+#
+# To show a NOTICE box, start the lines with `>`. The text after the tag becomes
+# the box title. Available tags: NOTE (blue), TIP (green), IMPORTANT (purple),
+# WARNING (amber), CAUTION (red).
+#
+#     > [!CAUTION] NOTICE!
+#     > The rest of the warning goes here.
+# =============================================================================
+
+- key: gauntlet
+  title: Gauntlet
+  summary: |-
+    Gauntlet was the origin of the BITESQUID project and where it all started. It now includes 50+ mods covering a wide range of fixes, enhancements, crash fixes and mechanic adjustments including the sound bug fix. For players seeking more challenge there are multiple endless mode mods that push the game into chaotic high intensity end game loops.
+    
+    Features include:
+    - Duplicate hero selection so players can pick the same class.
+    - Independent camera system so the party is no longer locked into a single screen.
+    - Nerf Death Incarnate by disabling or rebalancing the stats.
+    - Revamped potions with a cooldown system instead of a absolute requirement.
+    - Food and potions non destroyable to prevent griefing or accidental loss.
+    - Smart food pickup to prevent accidental griefing or wasted heals.
+    - Restored Pre Slayer passive abilities.
+    - Restored Pre Slayer kill streak systems.
+    - Restored Pre Slayer classic visual glows.
+
+    {{< image src="images/gauntletmods.png" alt="Gauntlet mods" >}}
+
+- key: magicka
+  title: Magicka
+  summary: ""
+  games:
+    - key: magicka-1
+      title: Magicka 1
+      summary: |-
+        > [!CAUTION] NOTICE!
+        > Certain exclusions apply to premium content that is no longer legitimately obtainable. This does **not** mean paid content is generally permitted.
+
+        The singleplayer campaign including all DLCS have been fully tested from start to finish with zero crashes.
+        
+        BITESQUID launcher:
+        - Automatically checks for missing dependencies
+        - LAA: Allows the 32-bit Magicka exe to use up to 4GB of RAM instead of 2GB (optional)
+        - DxWrapper: Improves rendering and reduces screen tearing (optional)
+
+        Features include:
+        - Disabled the need for external registration.
+        - All in-game rewards (excluding DLC content) are unlocked for player convenience.
+        - Numerous fixes contributed by many others in the community. 
+        - Added bloom graphics option in the menu.
+        - Restored Magicka Shop UI.
+        - settings.conf support for editing game options outside the game, useful for startup issues
+        - Unlock the bathrobe under settings.conf
+        - Many more fixes and enhancements are included.
+
+        {{< image src="images/magicka1mods.png" alt="Magicka 1 mods" >}}
+
+        > [!WARNING] Engine note
+        > This game was built using XNA but is still supported by BITESQUID.
+      games:
+        - key: more-information
+          title: More Information
+          summary: |-
+            ## Magicka 1 Script Editor
+
+            Made by **xehonk**. Lets you open, edit and save the game's XML scripts.
+
+            {{< image src="images/magicka1scripteditor.png" alt="Magicka 1 Script Editor" link="https://www.dropbox.com/scl/fi/30msv0s7xuc76mok3lv4m/Magicka.ScriptEditor.7z?rlkey=3aodrulwdhiwh38igwezouuys&st=k4r7onm9&dl=0" >}}
+
+            [Download Magicka 1 Script Editor](https://www.dropbox.com/scl/fi/30msv0s7xuc76mok3lv4m/Magicka.ScriptEditor.7z?rlkey=3aodrulwdhiwh38igwezouuys&st=k4r7onm9&dl=0)
+
+            ## Runtime dependencies
+
+            Magicka needs these installed. The middle column tells you whether the game already ships them.
+
+            | Dependency | Game includes it | Note |
+            | --- | --- | --- |
+            | [DirectX End-User Runtimes (June 2010)](https://www.microsoft.com/en-us/download/details.aspx?id=35) | **No** - the bundled `directx_feb2010` is **OUTDATED** | Needed for `D3DXCreateEffectEx` |
+            | [Microsoft XNA Framework Redistributable 3.1](https://www.microsoft.com/en-us/download/details.aspx?id=15163) | Yes - `Magicka\Dependencies\xnafx31_redist.msi` | Usually installs automatically |
+            | [Microsoft .NET Framework 3.5](https://www.microsoft.com/en-us/download/details.aspx?id=21) | Yes - `Magicka\Dependencies\dotnetfx35.exe` | Part of Windows 8, 10 and 11 as an optional feature |
+
+            ### Checking .NET Framework 3.5
+
+            It may not appear in **Programs and Features** because it is part of Windows itself. To confirm it is enabled:
+
+            - Open `Control Panel` -> `Programs` -> `Turn Windows features on or off` (left side bar)
+            - Look for `.NET Framework 3.5 (includes .NET 2.0 and 3.0)`
+              - If it is checked, you already have it
+              - If not, you can enable it without downloading anything, Windows fetches the files automatically
+
+            ---
+
+            ## DirectX Software Development Kit
+
+            The Audio and Shader tools below may be useful for modding. **[Download the DirectX SDK](https://www.microsoft.com/en-us/download/details.aspx?id=6812)** - `DXSDK_Jun10.exe` right-click then open<br>*9.29.1962.1 - 7/15/2024 - 571.7 MB*
+
+            ## Audio (.xsb / .xwb)
+
+            - **Location:** `XNA3.1\DXSDK\DXSDK\Utilities\bin\x86\Xact3.exe` (GUI) and `XactBld3.exe` (CLI)
+            - **Use:** Sound banks and building `.xsb` / `.xwb` files. Prefer WAV input; convert MP3 to WAV first if needed.
+
+            ## Shaders (.fxb)
+
+            - **Location:** `XNA3.1\DXSDK\DXSDK\Utilities\bin\x86\fxc.exe`
+            - **Use:** Compile HLSL effect files to `.fxb` for XNA 3.x. Start with `fxc /T fx_2_0 /Fo output.fxb input.fx`, but match the original shader profile when replacing an existing effect.
+
+    - key: magicka-2
+      title: Magicka 2
+      summary: |-
+        Features include:
+        - Disabled the need for external registration.
+        - All in-game rewards (excluding DLC content) are unlocked for player convenience.
+        - Hosted sessions are now defaulted to start as private instead of public.
+        - Kicking players now properly drops them from the session, preventing anti-kick exploits.
+        - Turbo-kick vulnerability patched.
+        - Sacrifice crash mitigation.
+        - Spell filter preventing players from using boss abilities such as Lok Beam and more.
+        - Integrated anti-cheat and additional protections.
+        - Debug levels are now available to all players in the menu.
+
+        {{< image src="images/magicka2mods.png" alt="Magicka 2 mods" >}}
+
+    - key: magicka-wizard-wars
+      title: Magicka Wizard Wars
+      summary: |-
+        > [!CAUTION] NOTICE!
+        > SHUTDOWN ANNOUNCEMENT: [Important Update Regarding Magicka: Wizard Wars](https://steamcommunity.com/games/202090/announcements/detail/965270081480654847)
+        >
+        > This game is currently de-listed but is still obtainable for free.
+        >
+        > Certain exclusions apply to premium content that is no longer legitimately obtainable. This does **not** mean paid content is generally permitted.
+
+        BITESQUID launcher:
+         - For supported BITESQUID mods you will need to launch the game using the BITESQUID launcher.
+
+        Features include:
+         - Restored multiplayer through steam p2p.
+         - Restored treasure chest unlocks.
+         - Unlocks previously unavailable content.
+         - Unlocks most gear, magicks, masterys.
+         - Offline account and character save data.
+
+        {{< image src="images/wizardwarsmods.png" alt="Magicka Wizard Wars mods" >}}
+
+        > [!WARNING] Steam install note
+        > Steam protocol URL: steam://install/202090
+
+    - key: magicka-wotst
+      title: Magicka Wizards of the Square Tablet
+      summary: |-
+        > [!CAUTION] NOTICE!
+        > SHUTDOWN ANNOUNCEMENT: [Magicka: Wizards of the Square Tablet Shutting Down](https://forum.paradoxplaza.com/forum/threads/magicka-wizards-of-the-square-tablet-shutting-down.1123974/)
+        >
+        > This game is currently de-listed but keys can still be found through third party sellers, purchase at your own discretion.
+
+        Features include:
+         - Restored multiplayer through steam p2p using the friends functionality. Matchmaking is a work in progress.
+
+        {{< image src="images/magickawotstmods1.png" alt="Magicka Wizards of the Square Tablet mods" >}}
+
+        {{< image src="images/magickawotstmods2.png" alt="Magicka Wizards of the Square Tablet mods" >}}
+
+        > [!WARNING] Engine note
+        > This game was built using Unity but is still supported by BITESQUID.
+
+- key: helldivers
+  title: Helldivers
+  summary: |-
+          No mods available at this time.
+
+- key: bloodsports-tv
+  title: Bloodsports TV
+  summary: |-
+          No mods available at this time.
+
+- key: a-game-of-dwarves
+  title: A Game of Dwarves
+  summary: |-
+        > [!CAUTION] NOTICE!
+        > Certain exclusions apply to premium content that is no longer legitimately obtainable. This does **not** mean paid content is generally permitted.
+
+        Features include:
+         - Restored the in-game shop because service cannot be reached, all in-game shop packs became free.
+
+        {{< image src="images/agodmods.png" alt="A Game of Dwarves mods" >}}
+
+- key: evil-v-evil
+  title: Evil V Evil
+  summary: |-
+        > [!CAUTION] NOTICE!
+        > SHUTDOWN ANNOUNCEMENT: [Sunset Announcement - Evil v Evil Service Ending August 1, 2025](https://store.steampowered.com/news/app/809090/view/547867519580373358)
+        >
+        > This game is currently de-listed but keys can still be found through third party sellers, purchase at your own discretion.
+        >
+        > Certain exclusions apply to premium content that is no longer legitimately obtainable. This does **not** mean paid content is generally permitted.
+
+        Features include:
+         - Restored multiplayer through steam p2p.
+         - Restored rewards and progression.
+         - Unlocks previously unavailable content.
+
+        {{< image src="images/evilvevilmods.png" alt="Evil V Evil mods" >}}
+
+- key: escape-dead-island
+  title: Escape Dead Island
+  summary: |-
+          No mods available at this time.
+
+- key: immortal-unchained
+  title: Immortal Unchained
+  summary: |-
+          No mods available at this time.
+
+- key: killallzombies
+  title: KILLALLZOMBIES
+  summary: |-
+          No mods available at this time.

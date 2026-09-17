@@ -1,0 +1,68 @@
+{{- /*
+  Creates game pages from a list of game entries.
+
+    ctx    - the content adapter context ($)
+    games  - the list of entries to create
+    prefix - path prefix for nested entries, e.g. "magicka/"
+
+  An entry with a `games` list becomes a section, and its children are created
+  underneath it - that is what makes it a collapsible group in the sidebar.
+  A plain entry becomes a page.
+
+  Order follows the list order, so there is no weight field to maintain.
+*/}}
+
+{{- $ctx := .ctx }}
+{{- $games := .games }}
+{{- $prefix := .prefix | default "" }}
+
+{{- range $i, $game := $games }}
+
+  {{- $weight := add $i 1 }}
+  {{- $path := printf "%s%s" $prefix $game.key }}
+
+  {{- /* The summary becomes the page body. An entry with no summary (a plain
+       menu group, or the Magicka parent) renders as a page/section with no
+       text of its own. A group CAN also have a summary, which is what lets
+       Magicka 1 keep its description and still hold child pages. */}}
+  {{- $body := "" }}
+  {{- with $game.summary }}
+    {{- $body = printf "%s\n" . }}
+  {{- end }}
+  {{- $content := dict "mediaType" "text/markdown" "value" $body }}
+
+  {{- /* Hugo's NextInSection skips sections, which would make a group
+       unreachable from the pager. Top-level entries get explicit neighbours
+       so the pager walks this file's order instead. */}}
+  {{- $params := dict }}
+  {{- if eq $prefix "" }}
+    {{- if gt $i 0 }}
+      {{- $params = merge $params (dict "prev" (printf "/docs/%s" (index $games (sub $i 1)).key)) }}
+    {{- end }}
+    {{- if lt $i (sub (len $games) 1) }}
+      {{- $params = merge $params (dict "next" (printf "/docs/%s" (index $games (add $i 1)).key)) }}
+    {{- end }}
+  {{- end }}
+
+  {{- $page := dict
+    "content" $content
+    "path" $path
+    "title" $game.title
+    "weight" $weight
+  }}
+  {{- if $params }}
+    {{- $page = merge $page (dict "params" $params) }}
+  {{- end }}
+
+  {{- if $game.games }}
+    {{- $ctx.AddPage (merge $page (dict "kind" "section")) }}
+    {{- partial "game-pages.html" (dict
+      "ctx" $ctx
+      "games" $game.games
+      "prefix" (printf "%s/" $path)
+    ) }}
+  {{- else }}
+    {{- $ctx.AddPage (merge $page (dict "kind" "page")) }}
+  {{- end }}
+
+{{- end }}
