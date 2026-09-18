@@ -57,6 +57,12 @@ params:
     displayCopyright: true
     displayPoweredBy: false
 
+  # GoatCounter analytics. Cookieless, so no consent banner is needed.
+  # Only emitted on production builds (hugo server is development and stays clean).
+  analytics:
+    goatCounter:
+      code: bitesquid
+
   search:
     enable: true
     type: flexsearch
