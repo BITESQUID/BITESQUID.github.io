@@ -49,6 +49,7 @@
   games:
     - key: magicka-1
       title: Magicka 1
+      anticheat: [VAC]
       summary: |-
         > [!CAUTION] NOTICE!
         > Certain exclusions apply to premium content that is no longer legitimately obtainable. This does **not** mean paid content is generally permitted.
@@ -139,6 +140,7 @@
 
     - key: magicka-wizard-wars
       title: Magicka Wizard Wars
+      anticheat: [EAC]
       summary: |-
         > [!CAUTION] NOTICE!
         > SHUTDOWN ANNOUNCEMENT: [Important Update Regarding Magicka: Wizard Wars](https://steamcommunity.com/games/202090/announcements/detail/965270081480654847)
@@ -182,6 +184,7 @@
 
 - key: helldivers
   title: Helldivers
+  anticheat: [VAC]
   summary: |-
         Features include:
          - Independent camera system so the party is no longer locked into a single screen.

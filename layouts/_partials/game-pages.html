@@ -26,8 +26,21 @@
        text of its own. A group CAN also have a summary, which is what lets
        Magicka 1 keep its description and still hold child pages. */}}
   {{- $body := "" }}
+
+  {{- /* A game protected by an anti-cheat system carries an orange badge above
+       its description, so the risk of modding is visible before anything else.
+       The `anticheat` list holds the system names, e.g. [VAC] or [VAC, EAC]. */}}
+  {{- with $game.anticheat }}
+    {{- $names := dict "VAC" "Valve Anti-Cheat" "EAC" "Easy Anti-Cheat" }}
+    {{- $badges := slice }}
+    {{- range . }}
+      {{- $badges = $badges | append (printf `<span class="anticheat-badge" title="%s is active in this game. Modding may carry a risk to your account."><svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.1 2.1 1.6 12.4a1 1 0 0 0 .9 1.5h11a1 1 0 0 0 .9-1.5L8.9 2.1a1 1 0 0 0-1.8 0Z"/><path d="M8 6.2v3"/><path d="M8 11.6h.01"/></svg>%s</span>` (index $names .) .) }}
+    {{- end }}
+    {{- $body = printf "<p class=\"anticheat\">%s</p>\n\n" (delimit $badges "") }}
+  {{- end }}
+
   {{- with $game.summary }}
-    {{- $body = printf "%s\n" . }}
+    {{- $body = printf "%s%s\n" $body . }}
   {{- end }}
   {{- $content := dict "mediaType" "text/markdown" "value" $body }}
 
