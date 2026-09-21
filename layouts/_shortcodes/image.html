@@ -4,11 +4,15 @@
   Serves a resized, web-optimised version instead of the original file, and
   emits width/height so the page does not shift while the image loads.
 
-    {{< image src="images/BITESQUID.png" alt="BITESQUID Mod Launcher" >}}
+  Images live in a folder per game inside assets/images/.
+
+    {{< image src="images/BITESQUID/BITESQUID.png" alt="BITESQUID Mod Launcher" >}}
 
   Optional:
     width   maximum rendered width (default 1200)
     link    wraps the image in a link so it can be clicked through
+    zoom    links the image to its own full-size copy, so a small grid cell can
+            be opened larger in a new tab. Ignored when link is also set.
     title   adds a caption below the image
 */}}
 
@@ -17,9 +21,11 @@
 {{- $maxWidth := .Get "width" | default 1200 -}}
 {{- $link := .Get "link" -}}
 {{- $title := .Get "title" -}}
+{{- $zoom := .Get "zoom" -}}
 
 {{- with resources.Get $src -}}
   {{- $img := .Resize (printf "%dx webp q82" (int $maxWidth)) -}}
+  {{- if and $zoom (not $link) -}}{{- $link = $img.RelPermalink -}}{{- end -}}
   {{- if $link }}<a href="{{ $link }}" target="_blank" rel="noopener" class="content-image-link">{{ end -}}
   <img
     src="{{ $img.RelPermalink }}"

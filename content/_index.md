@@ -3,7 +3,7 @@ title: BITESQUID
 type: docs
 ---
 
-{{< image src="images/wallpaper.jpg" alt="BITESQUID Mod Loader" >}}
+{{< image src="images/BITESQUID/wallpaper.jpg" alt="BITESQUID Mod Loader" >}}
 
 ## Launcher & Mod Loader
 BITESQUID is a runtime multi mod loader built for Bitsquid / Autodesk Stingray engine games but may also include other games if relatable. It does not modify or redistribute original game files.

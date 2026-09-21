@@ -9,6 +9,6 @@ weight: 1
 
 ## Preview
 
-{{< image src="images/BITESQUID.png" alt="BITESQUID Mod Launcher" >}}
+{{< image src="images/BITESQUID/BITESQUID.png" alt="BITESQUID Mod Launcher" >}}
 
-{{< image src="images/modconfigschema.png" alt="BITESQUID mod config schema example" >}}
+{{< image src="images/BITESQUID/modconfigschema.png" alt="BITESQUID mod config schema example" >}}

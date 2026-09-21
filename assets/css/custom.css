@@ -157,8 +157,32 @@ body {
 #content .content-image-link {
   display: block;
   text-decoration: none;
+  cursor: zoom-in;
 }
 
 #content .content-image-link:hover .content-image {
   border-color: var(--hx-color-primary-400);
+}
+
+/* --------------------------------------------------------------------------
+   Image grid - shows a set of screenshots side by side instead of stacked at
+   full width, so they can be compared without taking over the page.
+   -------------------------------------------------------------------------- */
+#content .content-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+  align-items: start;
+}
+
+/* the grid owns the spacing, so images inside it drop their own margins */
+#content .content-grid .content-image {
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  #content .content-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }

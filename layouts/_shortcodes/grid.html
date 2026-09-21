@@ -1,0 +1,15 @@
+{{- /*
+  Lays out the images inside it as a two-column grid, so a set of screenshots can
+  be compared without each one taking a full row.
+
+    {{< grid >}}
+    {{< image src="images/GAME/a.png" alt="A" width="900" zoom="true" >}}
+    {{< image src="images/GAME/b.png" alt="B" width="900" zoom="true" >}}
+    {{< /grid >}}
+
+  Collapses to a single column on narrow screens. Images keep their own
+  width/height, so they scale down inside their cell without distortion.
+  Add zoom="true" to each image so a cell can be opened at full size.
+*/}}
+
+<div class="content-grid">{{ .Inner }}</div>

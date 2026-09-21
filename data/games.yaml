@@ -41,7 +41,7 @@
     - Restored Pre Slayer kill streak systems.
     - Restored Pre Slayer classic visual glows.
 
-    {{< image src="images/gauntletmods.png" alt="Gauntlet mods" >}}
+    {{< image src="images/GAUNTLET/gauntletmods.png" alt="Gauntlet mods" >}}
 
 - key: magicka
   title: Magicka
@@ -70,7 +70,7 @@
         - Unlock the bathrobe under settings.conf
         - Many more fixes and enhancements are included.
 
-        {{< image src="images/magicka1mods.png" alt="Magicka 1 mods" >}}
+        {{< image src="images/MAGICKA/1/magicka1mods.png" alt="Magicka 1 mods" >}}
 
         > [!WARNING] Engine note
         > This game was built using XNA but is still supported by BITESQUID.
@@ -82,7 +82,7 @@
 
             Made by **xehonk**. Lets you open, edit and save the game's XML scripts.
 
-            {{< image src="images/magicka1scripteditor.png" alt="Magicka 1 Script Editor" link="https://www.dropbox.com/scl/fi/30msv0s7xuc76mok3lv4m/Magicka.ScriptEditor.7z?rlkey=3aodrulwdhiwh38igwezouuys&st=k4r7onm9&dl=0" >}}
+            {{< image src="images/MAGICKA/1/magicka1scripteditor.png" alt="Magicka 1 Script Editor" link="https://www.dropbox.com/scl/fi/30msv0s7xuc76mok3lv4m/Magicka.ScriptEditor.7z?rlkey=3aodrulwdhiwh38igwezouuys&st=k4r7onm9&dl=0" >}}
 
             [Download Magicka 1 Script Editor](https://www.dropbox.com/scl/fi/30msv0s7xuc76mok3lv4m/Magicka.ScriptEditor.7z?rlkey=3aodrulwdhiwh38igwezouuys&st=k4r7onm9&dl=0)
 
@@ -135,7 +135,7 @@
         - Integrated anti-cheat and additional protections.
         - Debug levels are now available to all players in the menu.
 
-        {{< image src="images/magicka2mods.png" alt="Magicka 2 mods" >}}
+        {{< image src="images/MAGICKA/2/magicka2mods.png" alt="Magicka 2 mods" >}}
 
     - key: magicka-wizard-wars
       title: Magicka Wizard Wars
@@ -157,7 +157,7 @@
          - Unlocks most gear, magicks, masterys.
          - Offline account and character save data.
 
-        {{< image src="images/wizardwarsmods.png" alt="Magicka Wizard Wars mods" >}}
+        {{< image src="images/MAGICKA/WIZARD WARS/wizardwarsmods.png" alt="Magicka Wizard Wars mods" >}}
 
         > [!WARNING] Steam install note
         > Steam protocol URL: steam://install/202090
@@ -173,9 +173,9 @@
         Features include:
          - Restored multiplayer through steam p2p using the friends functionality. Matchmaking is a work in progress.
 
-        {{< image src="images/magickawotstmods1.png" alt="Magicka Wizards of the Square Tablet mods" >}}
+        {{< image src="images/MAGICKA/WIZARDS OF THE SQUARE TABLET/magickawotstmods1.png" alt="Magicka Wizards of the Square Tablet mods" >}}
 
-        {{< image src="images/magickawotstmods2.png" alt="Magicka Wizards of the Square Tablet mods" >}}
+        {{< image src="images/MAGICKA/WIZARDS OF THE SQUARE TABLET/magickawotstmods2.png" alt="Magicka Wizards of the Square Tablet mods" >}}
 
         > [!WARNING] Engine note
         > This game was built using Unity but is still supported by BITESQUID.
@@ -183,7 +183,19 @@
 - key: helldivers
   title: Helldivers
   summary: |-
-          No mods available at this time.
+        Features include:
+         - Independent camera system so the party is no longer locked into a single screen.
+         - Zoomed out camera view.
+         - Patched chat, spoofing and network related vulnerabilities.
+         - Anti-cheat that monitors each client for infinite ammo, infinite health, infinite shields and speed hacking. Enforcement is available.
+         - Banlist support, preventing them from joining. Cheaters flagged by the game are added to the banlist.
+
+        {{< grid >}}
+        {{< image src="images/HELLDIVERS/helldivermods.png" alt="Helldivers mods" width="900" zoom="true" >}}
+        {{< image src="images/HELLDIVERS/cameraview.png" alt="Helldivers zoomed out camera view" width="900" zoom="true" >}}
+        {{< image src="images/HELLDIVERS/host.png" alt="Helldivers host camera view" width="900" zoom="true" >}}
+        {{< image src="images/HELLDIVERS/client.png" alt="Helldivers client camera view" width="900" zoom="true" >}}
+        {{< /grid >}}
 
 - key: bloodsports-tv
   title: Bloodsports TV
@@ -199,7 +211,7 @@
         Features include:
          - Restored the in-game shop because service cannot be reached, all in-game shop packs became free.
 
-        {{< image src="images/agodmods.png" alt="A Game of Dwarves mods" >}}
+        {{< image src="images/AGAMEOFDWARVES/agodmods.png" alt="A Game of Dwarves mods" >}}
 
 - key: evil-v-evil
   title: Evil V Evil
@@ -216,7 +228,7 @@
          - Restored rewards and progression.
          - Unlocks previously unavailable content.
 
-        {{< image src="images/evilvevilmods.png" alt="Evil V Evil mods" >}}
+        {{< image src="images/EVILVEVIL/evilvevilmods.png" alt="Evil V Evil mods" >}}
 
 - key: escape-dead-island
   title: Escape Dead Island
