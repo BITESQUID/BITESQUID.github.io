@@ -14,10 +14,10 @@ BITESQUID provides the LUA framework and mods are open to the community. The loa
 ## Mod Config Schema
 BITESQUID provides mod config settings if mod authors choose to implement them. This allows players to fully customize their modding experience.
 
-## Community Bans
-BITESQUID includes a cross-game banlist to protect the community across all supported titles.
+## Banlist
+BITESQUID includes a cross-game banlist to help protect the community across all supported titles.
 
-The banlist is fully editable by anyone, but the version shipped with BITESQUID reflects our stance and is intended to keep the wider community safe.
+The banlist is entirely user-managed and fully editable by anyone. Games with integrated cheat detection, as well as compatible mods, can automatically add detected cheaters to the banlist.
 
 ## Games not supported
 

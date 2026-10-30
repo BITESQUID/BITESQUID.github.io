@@ -79,14 +79,6 @@
         - key: more-information
           title: More Information
           summary: |-
-            ## Magicka 1 Script Editor
-
-            Made by **xehonk**. Lets you open, edit and save the game's XML scripts.
-
-            {{< image src="images/MAGICKA/1/magicka1scripteditor.png" alt="Magicka 1 Script Editor" link="https://www.dropbox.com/scl/fi/30msv0s7xuc76mok3lv4m/Magicka.ScriptEditor.7z?rlkey=3aodrulwdhiwh38igwezouuys&st=k4r7onm9&dl=0" >}}
-
-            [Download Magicka 1 Script Editor](https://www.dropbox.com/scl/fi/30msv0s7xuc76mok3lv4m/Magicka.ScriptEditor.7z?rlkey=3aodrulwdhiwh38igwezouuys&st=k4r7onm9&dl=0)
-
             ## Runtime dependencies
 
             Magicka needs these installed. The middle column tells you whether the game already ships them.
@@ -121,6 +113,14 @@
 
             - **Location:** `XNA3.1\DXSDK\DXSDK\Utilities\bin\x86\fxc.exe`
             - **Use:** Compile HLSL effect files to `.fxb` for XNA 3.x. Start with `fxc /T fx_2_0 /Fo output.fxb input.fx`, but match the original shader profile when replacing an existing effect.
+
+            ## Magicka 1 Script Editor
+
+            Made by **xehonk**. Lets you open, edit and save the game's XML scripts.
+
+            {{< image src="images/MAGICKA/1/magicka1scripteditor.png" alt="Magicka 1 Script Editor" link="https://www.dropbox.com/scl/fi/30msv0s7xuc76mok3lv4m/Magicka.ScriptEditor.7z?rlkey=3aodrulwdhiwh38igwezouuys&st=k4r7onm9&dl=0" >}}
+
+            [Download Magicka 1 Script Editor](https://www.dropbox.com/scl/fi/30msv0s7xuc76mok3lv4m/Magicka.ScriptEditor.7z?rlkey=3aodrulwdhiwh38igwezouuys&st=k4r7onm9&dl=0)
 
     - key: magicka-2
       title: Magicka 2
